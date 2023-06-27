@@ -1,5 +1,3 @@
-SELECT * FROM film;
-
 -- 1. How many actors are there with the last name ‘Wahlberg’?
 
 -- Answer: 2
@@ -22,13 +20,13 @@ WHERE amount > 3.99 and amount < 5.99;
 
 -- 3. What film does the store have the most of? (search in inventory)
 
--- Answer: there are 2 stores, and each store has a large number of movies whose inventory equals to 4 (please run code below for list of movies)
+-- Answer: there a large number of movies whose inventory equals to 8 (please run code below for list of movies)
 
-SELECT film.title, inventory.store_id, COUNT(inventory.film_id)
+SELECT film.title, inventory.film_id, COUNT(inventory.film_id)
 FROM inventory
 LEFT OUTER JOIN film ON inventory.film_id = film.film_id
-GROUP BY film.title, inventory.store_id
-ORDER BY COUNT(inventory.film_id) DESC, inventory.store_id DESC, title ASC;
+GROUP BY film.title, inventory.film_id
+ORDER BY COUNT(inventory.film_id) DESC, title ASC;
 
 
 
@@ -39,6 +37,12 @@ ORDER BY COUNT(inventory.film_id) DESC, inventory.store_id DESC, title ASC;
 SELECT COUNT(last_name)
 FROM customer
 WHERE last_name = 'William';
+
+-- Answer #2: 2 customers have the last name similar to William
+
+SELECT COUNT(last_name)
+FROM customer
+WHERE last_name LIKE '%William%'
 
 
 
