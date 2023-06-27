@@ -22,7 +22,7 @@ WHERE amount > 3.99 and amount < 5.99;
 
 -- 3. What film does the store have the most of? (search in inventory)
 
--- Answer: there are 2 stores, and each store has a large number of movies whose inventory equals to 4 (please see code below for list of movies)
+-- Answer: there are 2 stores, and each store has a large number of movies whose inventory equals to 4 (please run code below for list of movies)
 
 SELECT film.title, inventory.store_id, COUNT(inventory.film_id)
 FROM inventory
